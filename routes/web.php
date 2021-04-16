@@ -10,6 +10,8 @@ Auth::routes();
 Route::get('/admin/logout','Auth\LoginController@adminLogout')->name('admin.logout');
 Route::group(['as'=> 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'],function (){
     Route::get('/dashboard','AdminController@index')->name('dashboard');
+    Route::resource('year','YearController');
+    Route::resource('month','MonthController');
 });
 
 
