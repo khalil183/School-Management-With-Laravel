@@ -49,8 +49,11 @@
                   <li><a href="{{ route('admin.month.index') }}"><i class="fa fa-circle-o"></i> Manage Month</a></li>
                   <li><a href="{{ route('admin.class.index') }}"><i class="fa fa-circle-o"></i> Manage Class</a></li>
                   <li><a href="{{ route('admin.book.index') }}"><i class="fa fa-circle-o"></i> Manage Book</a></li>
-                  <li><a href="{{ route('admin.fee-category.index') }}"><i class="fa fa-circle-o"></i> Manage Fee Amount</a></li>
-                  <li><a href="{{ route('admin.fee-amount.index') }}"><i class="fa fa-circle-o"></i> Manage Fee Category</a></li>
+                  <li><a href="{{ route('admin.assign-subject.index') }}"><i class="fa fa-circle-o"></i> Assign Subject</a></li>
+
+                  <li><a href="{{ route('admin.fee-category.index') }}"><i class="fa fa-circle-o"></i> Manage Fee Category </a></li>
+                  <li><a href="{{ route('admin.fee-amount.index') }}"><i class="fa fa-circle-o"></i> Manage Fee Amount</a></li>
+
 
 
 
