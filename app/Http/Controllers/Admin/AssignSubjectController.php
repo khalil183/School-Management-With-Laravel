@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Book;
-class BookController extends Controller
+
+class AssignSubjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books=Book::all();
-        return view('admin.book.index',compact('books'));
+        //
     }
 
     /**
@@ -25,7 +24,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('admin.book.create');
+        //
     }
 
     /**
@@ -36,23 +35,7 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'name'=>'required|unique:books',
-            'code'=>'required|unique:books',
-
-        ]);
-
-        Book::create([
-            'name'=>$request->name,
-            'code'=>$request->code,
-        ]);
-
-        $notification=array(
-            'messege'=>'Created SuccessfullY',
-            'alert-type'=>'success'
-             );
-
-        return Redirect()->back()->with($notification);
+        //
     }
 
     /**

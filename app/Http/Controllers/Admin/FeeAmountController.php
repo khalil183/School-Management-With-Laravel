@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Book;
-class BookController extends Controller
+use App\FeeAmount;
+use App\FeeCategory;
+use App\Year;
+use App\StudentClass;
+class FeeAmountController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +17,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books=Book::all();
-        return view('admin.book.index',compact('books'));
+        $feeAmounts=FeeAmount::all();
+        return view('admin.feeAmount.index',compact('feeAmounts'));
     }
 
     /**
@@ -25,7 +28,10 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('admin.book.create');
+        $feeCategories=FeeCategory::all();
+        $years=Year::all();
+        $classes=StudentClass::all();
+        return view('admin.feeAmount.create',compact('feeCategories','years','classes'));
     }
 
     /**
@@ -37,14 +43,17 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name'=>'required|unique:books',
-            'code'=>'required|unique:books',
-
+            'fee_category'=>'required',
+            'year'=>'required',
+            'class'=>'required',
+            'amount'=>'required',
         ]);
 
-        Book::create([
-            'name'=>$request->name,
-            'code'=>$request->code,
+        FeeAmount::create([
+            'fee_category_id'=>$request->fee_category,
+            'year_id'=>$request->year,
+            'class_id'=>$request->class,
+            'amount'=>$request->amount,
         ]);
 
         $notification=array(

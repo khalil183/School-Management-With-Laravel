@@ -6,8 +6,8 @@
         <div class="col-xs-6">
         <div class="box">
             <div class="box-header">
-            <h3 class="box-title">Book Form</h3>
-            <a href="{{ route('admin.book.index') }}" class="btn btn-success pull-right"><i class="fa fa-list" aria-hidden="true"></i> Book List</a>
+            <h3 class="box-title">Fee Category Form</h3>
+            <a href="{{ route('admin.fee-category.index') }}" class="btn btn-success pull-right"><i class="fa fa-list" aria-hidden="true"></i> Fee Category List</a>
             </div><!-- /.box-header -->
             <div class="box-body">
                 @if ($errors->any())
@@ -19,17 +19,12 @@
                     </ul>
                 </div>
                 @endif
-                <form action="{{ route('admin.book.store') }}" method="POST" >
+                <form action="{{ route('admin.fee-category.store') }}" method="POST" >
                     @csrf
                     <div class="form-group">
-                        <label for="name">Book Name</label>
-                        <input name="name" id="name" type="text" class="form-control" placeholder="Bangla" value="{{ old('name') }}">
+                        <label for="name">Fee Category Name</label>
+                        <input name="name" id="name" type="text" class="form-control" placeholder="First Terminal Exam" value="{{ old('name') }}">
                     </div>
-                    <div class="form-group">
-                        <label for="code">Book Code</label>
-                        <input name="code" id="code" type="text" class="form-control" placeholder="5230" value="{{ old('code') }}">
-                    </div>
-
 
                     <button type="submit" class="btn btn-success">Add New</button>
                 </form>

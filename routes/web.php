@@ -13,6 +13,9 @@ Route::group(['as'=> 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'],func
     Route::resource('year','YearController');
     Route::resource('month','MonthController');
     Route::resource('class','StudentClassController');
+    Route::resource('book','BookController');
+    Route::resource('fee-category','FeeCategoryController');
+    Route::resource('fee-amount','FeeAmountController');
 });
 
 
