@@ -53,6 +53,8 @@
 
                   <li><a href="{{ route('admin.fee-category.index') }}"><i class="fa fa-circle-o"></i> Manage Fee Category </a></li>
                   <li><a href="{{ route('admin.fee-amount.index') }}"><i class="fa fa-circle-o"></i> Manage Fee Amount</a></li>
+                  <li><a href="{{ route('admin.designation.index') }}"><i class="fa fa-circle-o"></i> Manage Designation</a></li>
+
 
 
 
