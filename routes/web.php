@@ -12,6 +12,7 @@ Route::group(['as'=> 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'],func
     Route::get('/dashboard','AdminController@index')->name('dashboard');
     Route::resource('year','YearController');
     Route::resource('month','MonthController');
+    Route::resource('class','StudentClassController');
 });
 
 

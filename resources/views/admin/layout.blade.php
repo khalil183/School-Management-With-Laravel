@@ -47,6 +47,10 @@
                 <ul class="treeview-menu">
                   <li><a href="{{ route('admin.year.index') }}"><i class="fa fa-circle-o"></i> Manage Year</a></li>
                   <li><a href="{{ route('admin.month.index') }}"><i class="fa fa-circle-o"></i> Manage Month</a></li>
+                  <li><a href="{{ route('admin.class.index') }}"><i class="fa fa-circle-o"></i> Manage Class</a></li>
+                  <li><a href="{{ route('admin.month.index') }}"><i class="fa fa-circle-o"></i> Manage Book</a></li>
+
+
                 </ul>
               </li>
               <li class="treeview">
