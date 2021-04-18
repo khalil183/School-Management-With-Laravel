@@ -18,7 +18,7 @@ class CreateAssignStudentsTable extends Migration
             $table->integer('student_id');
             $table->integer('class_id');
             $table->integer('year_id');
-            $table->integer('roll')->nullable();
+            $table->integer('roll')->default(0);
             $table->timestamps();
         });
     }
