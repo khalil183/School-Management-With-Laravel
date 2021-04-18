@@ -54,14 +54,18 @@
                   <li><a href="{{ route('admin.fee-category.index') }}"><i class="fa fa-circle-o"></i> Manage Fee Category </a></li>
                   <li><a href="{{ route('admin.fee-amount.index') }}"><i class="fa fa-circle-o"></i> Manage Fee Amount</a></li>
                   <li><a href="{{ route('admin.designation.index') }}"><i class="fa fa-circle-o"></i> Manage Designation</a></li>
-
-
-
-
-
+                </ul>
+              </li>
+              <li class="treeview">
+                <a href="#">
+                  <i class="fa fa-users"></i> <span>Manage Student</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                  <li><a href="{{ route('admin.student-registration.index') }}"><i class="fa fa-circle-o"></i> Student Registration</a></li>
 
                 </ul>
               </li>
+
               <li class="treeview">
                 <a href="#">
                   <i class="fa fa-files-o"></i>
