@@ -13,12 +13,14 @@ Route::group(['as'=> 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'],func
     Route::resource('year','YearController');
     Route::resource('month','MonthController');
     Route::resource('class','StudentClassController');
+    Route::resource('exam','ExamController');
     Route::resource('book','BookController');
     Route::resource('fee-category','FeeCategoryController');
     Route::resource('fee-amount','FeeAmountController');
     Route::resource('assign-subject','AssignSubjectController');
     Route::resource('designation','DesignationController');
     Route::resource('student-registration','StudentRegistrationController');
+    Route::resource('teacher-registration','TeacherController');
 });
 
 

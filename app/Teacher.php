@@ -16,7 +16,7 @@ class Teacher extends Authenticatable
      * @var array
      */
     protected $fillable=[
-        'name','phone','email','password','nid','image','date_of_birth','join_date','address','salary','educations','status'
+        'name','phone','email','password','nid','image','date_of_birth','join_date','address','salary','educations','status','gender','designation_id','teacher_id'
     ];
 
     /**
@@ -36,5 +36,9 @@ class Teacher extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function designation(){
+        return $this->belongsTo(Designation::class);
+    }
 }
 

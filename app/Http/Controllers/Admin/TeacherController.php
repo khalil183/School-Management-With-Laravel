@@ -4,14 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Student;
-use App\Year;
-use App\StudentClass;
-use App\AssignStudent;
+use App\Teacher;
+use App\Designation;
 use Image;
 use Hash;
-use PDF;
-class StudentRegistrationController extends Controller
+class TeacherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,8 +17,8 @@ class StudentRegistrationController extends Controller
      */
     public function index()
     {
-        $students=Student::all();
-        return view('admin.student.registration.index',compact('students'));
+        $teachers=Teacher::with('designation')->get();
+        return view('admin.teacher.index',compact('teachers'));
     }
 
     /**
@@ -31,9 +28,8 @@ class StudentRegistrationController extends Controller
      */
     public function create()
     {
-        $years=Year::all();
-        $classes=StudentClass::all();
-        return view('admin.student.registration.create',compact('years','classes'));
+        $designations=Designation::all();
+        return view('admin.teacher.create',compact('designations'));
     }
 
     /**
@@ -44,20 +40,18 @@ class StudentRegistrationController extends Controller
      */
     public function store(Request $request)
     {
-
-          $this->validate($request,[
+        $this->validate($request,[
             'name'=>'required',
             'email'=>'required',
             'phone'=>'required',
-            'father_name'=>'required',
-            'mother_name'=>'required',
             'address'=>'required',
+            'nid'=>'required',
             'date_of_birth'=>'required',
-            'birth_reg_code'=>'required',
+            'join_date'=>'required',
             'gender'=>'required',
-            'class'=>'required',
-            'year'=>'required',
-            'roll'=>'required',
+            'designation_id'=>'required',
+            'salary'=>'required',
+            'educations'=>'required',
             'password'=>'required',
             'photo'=>'required',
 
@@ -66,47 +60,45 @@ class StudentRegistrationController extends Controller
         $photo=$request->file('photo');
         $ext=$photo->getClientOriginalExtension();
         $name= date('Y-m-d-h-i-s-').rand(999,9999).'.'.$ext;
-        $path='public/uploads/students/';
+        $path='public/uploads/teachers/';
         $upload_path=$path.$name;
         Image::make($photo)
                 ->resize(150,180)
                 ->save($upload_path);
 
-        $year=Year::find($request->year)->year;
-        $findStudent=Student::orderBy('id','DESC')->first();
-        if($findStudent==null){
-            $studentId='0001';
+
+        $year=date('Ym');
+        $findTeacher=Teacher::orderBy('id','DESC')->first();
+        if($findTeacher==null){
+            $teacherId='0001';
         }else{
-            $id=$findStudent->id+1;
+            $id=$findTeacher->id+1;
             if($id<10){
-                $studentId="000".$id;
+                $teacherId="000".$id;
             }else if($id<100){
-                $studentId="00".$id;
+                $teacherId="00".$id;
             }else if($id<1000){
-                $studentId="0".$id;
+                $teacherId="0".$id;
             }
         }
 
-        $student=Student::create([
+        $teacher=Teacher::create([
                     'name'=>$request->name,
                     'email'=>$request->email,
                     'phone'=>$request->phone,
-                    'student_id'=>$year.$studentId,
-                    'father_name'=>$request->father_name,
-                    'mother_name'=>$request->mother_name,
+                    'teacher_id'=>$year.$teacherId,
                     'address'=>$request->address,
                     'gender'=>$request->gender,
+                    'nid'=>$request->nid,
+                    'designation_id'=>$request->designation_id,
+                    'salary'=>$request->salary,
+                    'educations'=>$request->educations,
                     'date_of_birth'=>$request->date_of_birth,
-                    'birth_reg_code'=>$request->birth_reg_code,
+                    'join_date'=>$request->join_date,
                     'password'=>Hash::make($request->password),
-                    'photo'=>$upload_path,
+                    'image'=>$upload_path,
                 ]);
-        $assignStudent=AssignStudent::create([
-            'student_id'=>$student->id,
-            'class_id'=>$request->class,
-            'year_id'=>$request->year,
-            'roll'=>$request->roll,
-        ]);
+
 
         $notification=array(
             'messege'=>'Registration SuccessfullY',
@@ -114,8 +106,6 @@ class StudentRegistrationController extends Controller
              );
 
         return Redirect()->back()->with($notification);
-
-
     }
 
     /**
@@ -126,12 +116,7 @@ class StudentRegistrationController extends Controller
      */
     public function show($id)
     {
-        $student=Student::find($id);
-
-
-
-        $pdf = PDF::loadView('admin.student.registration.pdf',compact('student'));
-        return $pdf->stream('invoice.pdf');
+        //
     }
 
     /**

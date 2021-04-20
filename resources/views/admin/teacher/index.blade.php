@@ -6,8 +6,8 @@
         <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-            <h3 class="box-title">Student Table</h3>
-            <a href="{{ route('admin.student-registration.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus" aria-hidden="true"></i> Student Registration</a>
+            <h3 class="box-title">Teacher Table</h3>
+            <a href="{{ route('admin.teacher-registration.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus" aria-hidden="true"></i> Teacher Registration</a>
             </div><!-- /.box-header -->
             <div class="box-body">
                 <table id="example1" class="table table-bordered table-striped">
@@ -17,9 +17,9 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
-                        <th>Student Id</th>
+                        <th>Id Card</th>
                         <th>Image</th>
-                        <th>Admission Session</th>
+                        <th>Salary</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -27,22 +27,21 @@
                         @php
                             $i=0;
                         @endphp
-                      @foreach ($students as $item)
+                      @foreach ($teachers as $item)
                       <tr>
                         <td>{{ $i++ }}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->phone }}</td>
-                        <td>{{ $item->student_id }}</td>
+                        <td>{{ $item->teacher_id}}</td>
                         <td>
-                            <img src="{{ url($item->photo) }}" alt="" width="50px">
+                            <img src="{{ url($item->image) }}" width="50px" alt="">
                         </td>
-                        <td>{{ date('Y',strtotime($item->created_at)) }} - {{ date('Y',strtotime($item->created_at))+1 }}</td>
-
+                        <td>{{ $item->salary }} Tk</td>
                         <td>
                             <a href="{{ route('admin.fee-amount.edit',$item->id) }}" class="btn btn-primary disabled"><i class="fa fa-edit    "></i></a>
                             <a href="" class="btn btn-danger disabled"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="modal" data-target="#modelId-{{ $item->student_id }}" class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#modelId-{{ $item->teacher_id }}" class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i></a>
                         </td>
 
                       </tr>
@@ -56,11 +55,11 @@
     </div><!-- /.row -->
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
+<!-- Button trigger modal -->
 
-
-@foreach ($students as $item)
+@foreach ($teachers as $item)
     <!-- Modal -->
-<div class="modal fade" id="modelId-{{ $item->student_id }}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+<div class="modal fade" id="modelId-{{ $item->teacher_id }}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content ">
                 <div class="modal-header text-center">
@@ -70,36 +69,34 @@
                 </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <h3 class="text-center">Registration Card</h3>
+                    <h3 class="text-center">Teacher Details</h3>
                     <table class="table table-bordered">
                         <tr>
                             <td>Photo</td>
-                            <td><img src="{{ url($item->photo) }}" width="80px" alt=""></td>
+                            <td><img src="{{ url($item->image) }}" width="80px" alt=""></td>
                         </tr>
                         <tr>
-                            <td>Student Name</td>
+                            <td>Teacher Name</td>
                             <td>{{ $item->name }}</td>
                         </tr>
                          <tr>
-                            <td>Student Id</td>
-                            <td>{{ $item->student_id }}</td>
+                            <td>Teacher Id</td>
+                            <td>{{ $item->teacher_id }}</td>
                         </tr>
                          <tr>
-                            <td>Student Phone</td>
+                            <td>Teacher Phone</td>
                             <td>{{ $item->phone }}</td>
                         </tr>
                          <tr>
-                            <td>Student Email</td>
+                            <td>Teacher Email</td>
                             <td>{{ $item->email }}</td>
                         </tr>
-                         <tr>
-                            <td>Father Name</td>
-                            <td>{{ $item->father_name }}</td>
+                        <tr>
+                            <td>Designation</td>
+                            <td>{{ $item->designation->name }}</td>
                         </tr>
-                         <tr>
-                            <td>Mother Name</td>
-                            <td>{{ $item->mother_name }}</td>
-                        </tr>
+
+
                          <tr>
                             <td>Gender</td>
                             <td>{{ $item->gender }}</td>
@@ -109,13 +106,12 @@
                             <td>{{ $item->date_of_birth }}</td>
                         </tr>
                         <tr>
-                            <td>Birth Certificate</td>
-                            <td>{{ $item->birth_reg_code }}</td>
+                            <td>National Card</td>
+                            <td>{{ $item->nid }}</td>
                         </tr>
-
                         <tr>
-                            <td>Admission Session</td>
-                            <td>{{ date('Y',strtotime($item->created_at)) }} - {{ date('Y',strtotime($item->created_at))+1 }}</td>
+                            <td>Join Date</td>
+                            <td>{{ $item->join_date }}</td>
                         </tr>
                         <tr>
                             <td>Address</td>

@@ -49,6 +49,8 @@
                   <li><a href="{{ route('admin.month.index') }}"><i class="fa fa-circle-o"></i> Manage Month</a></li>
                   <li><a href="{{ route('admin.class.index') }}"><i class="fa fa-circle-o"></i> Manage Class</a></li>
                   <li><a href="{{ route('admin.book.index') }}"><i class="fa fa-circle-o"></i> Manage Book</a></li>
+                  <li><a href="{{ route('admin.exam.index') }}"><i class="fa fa-circle-o"></i> Manage Exam</a></li>
+
                   <li><a href="{{ route('admin.assign-subject.index') }}"><i class="fa fa-circle-o"></i> Assign Subject</a></li>
 
                   <li><a href="{{ route('admin.fee-category.index') }}"><i class="fa fa-circle-o"></i> Manage Fee Category </a></li>
@@ -62,6 +64,15 @@
                 </a>
                 <ul class="treeview-menu">
                   <li><a href="{{ route('admin.student-registration.index') }}"><i class="fa fa-circle-o"></i> Student Registration</a></li>
+
+                </ul>
+              </li>
+              <li class="treeview">
+                <a href="#">
+                  <i class="fa fa-users"></i> <span>Manage Teacher</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                  <li><a href="{{ route('admin.teacher-registration.index') }}"><i class="fa fa-circle-o"></i> Teacher Registration</a></li>
 
                 </ul>
               </li>

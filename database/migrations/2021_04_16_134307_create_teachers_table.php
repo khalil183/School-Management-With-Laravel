@@ -18,6 +18,7 @@ class CreateTeachersTable extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('email');
+            $table->string('teacher_id');
             $table->string('password');
             $table->string('nid');
             $table->string('image');
@@ -26,6 +27,8 @@ class CreateTeachersTable extends Migration
             $table->string('address');
             $table->double('salary');
             $table->string('educations');
+            $table->string('gender');
+            $table->integer('designation_id');
             $table->integer('status')->default(1);
             $table->timestamps();
         });
