@@ -23,6 +23,10 @@ class Mark extends Model
         return $this->belongsTo(Exam::class);
     }
 
+    public function assignSubject(){
+        return $this->belongsTo(AssignSubject::class,'subject_id','book_id');
+    }
+
 
 
 }

@@ -22,6 +22,9 @@ Route::group(['as'=> 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'],func
     Route::resource('student-registration','StudentRegistrationController');
     Route::resource('teacher-registration','TeacherController');
     Route::resource('grad-point','GradPointController');
+    Route::resource('marksheet','MarkSheetController');
+    Route::post('search-marksheet','MarkSheetController@searchMarkSheet')->name('search.marksheet');
+
 
 
     Route::resource('mark','MarkController');
