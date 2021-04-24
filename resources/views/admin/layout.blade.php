@@ -76,6 +76,22 @@
 
                 </ul>
               </li>
+              <li class="treeview">
+                <a href="#">
+                  <i class="fa fa-users"></i> <span>Manage Exam Mark</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                  <li><a href="{{ route('admin.mark.create') }}"><i class="fa fa-circle-o"></i> Mark Entry</a></li>
+                  <li><a href="{{ route('admin.mark.index') }}"><i class="fa fa-circle-o"></i>Manage Mark</a></li>
+                  <li><a href="{{ route('admin.grad-point.index') }}"><i class="fa fa-circle-o"></i>Manage Grad Point</a></li>
+
+
+
+                </ul>
+              </li>
+
+
+
 
               <li class="treeview">
                 <a href="#">
