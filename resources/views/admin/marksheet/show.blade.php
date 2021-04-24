@@ -134,54 +134,5 @@
     </div><!-- /.row -->
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
-{{--
-<script>
-    function loadSubject(){
-        var id=$("#class").val();
-        $.ajax({
-            type:"GET",
-            url: "{{url('/admin/class-by-subject/')}}"+"/"+id,
-            success:function(response){
-                $("#subject").html(response)
 
-            }
-        })
-
-    }
-
-    function searchStudent(){
-        var yearId=$("#year").val();
-        var classId=$("#class").val();
-        var subjectId=$("#subject").val();
-        var examId=$("#exam").val();
-
-        if(!yearId){
-            toastr.error('Year Field is Required!')
-            return;
-        }
-        if(!classId){
-            toastr.error('Class Field is Required!')
-            return;
-        }
-        if(!subjectId){
-            toastr.error('Subject Field is Required!')
-            return;
-        }
-        if(!examId){
-            toastr.error('Exam Field is Required!')
-            return;
-        }
-
-
-
-        var url="{{ route('admin.search.student') }}";
-        var queryString= "?yearId="+yearId+"&classId="+classId+"&subjectId="+subjectId+"&examId="+examId;
-        $.get(url+queryString, function (response) {
-            $("#loadStudentView").html(response)
-        });
-
-
-
-    }
-</script> --}}
 @endsection

@@ -13,4 +13,15 @@ class AssignStudent extends Model
     public function student(){
         return $this->belongsTo(Student::class);
     }
+
+    public function marks(){
+        return $this->hasMany(Mark::class,'student_id','student_id');
+    }
+    public function studentClass(){
+        return $this->belongsTo(StudentClass::class,'class_id');
+    }
+    public function year(){
+        return $this->belongsTo(Year::class);
+    }
+
 }

@@ -85,6 +85,8 @@
                   <li><a href="{{ route('admin.mark.index') }}"><i class="fa fa-circle-o"></i>Manage Mark</a></li>
                   <li><a href="{{ route('admin.grad-point.index') }}"><i class="fa fa-circle-o"></i>Manage Grad Point</a></li>
                   <li><a href="{{ route('admin.marksheet.index') }}"><i class="fa fa-circle-o"></i>Manage Marksheet</a></li>
+                  <li><a href="{{ route('admin.result') }}"><i class="fa fa-circle-o"></i>Manage Result</a></li>
+
 
 
 
