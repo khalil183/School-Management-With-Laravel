@@ -24,4 +24,8 @@ class AssignStudent extends Model
         return $this->belongsTo(Year::class);
     }
 
+    public function totalMark(){
+        return $this->hasMany(Mark::class,'student_id','student_id')->SUM('mark');
+    }
+
 }

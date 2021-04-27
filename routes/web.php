@@ -24,16 +24,18 @@ Route::group(['as'=> 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'],func
     Route::resource('grad-point','GradPointController');
     Route::resource('marksheet','MarkSheetController');
     Route::post('search-marksheet','MarkSheetController@searchMarkSheet')->name('search.marksheet');
-
     Route::get('result','ResultController@index')->name('result');
     Route::post('search-result','ResultController@searchResult')->name('search.result');
-
-
-
-
     Route::resource('mark','MarkController');
     Route::get('class-by-subject/{id}','MarkController@classBySubject');
     Route::get('search-student','MarkController@searchStudent')->name('search.student');
+
+    Route::get('student-promotion','StudentPromotController@index')->name('student.promotion');
+    Route::post('search-student-promotion','StudentPromotController@searchStudent')->name('search.student.promotion');
+    Route::post('promote-class','StudentPromotController@promote')->name('promote.class');
+
+
+
 });
 
 

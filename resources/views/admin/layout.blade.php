@@ -64,6 +64,8 @@
                 </a>
                 <ul class="treeview-menu">
                   <li><a href="{{ route('admin.student-registration.index') }}"><i class="fa fa-circle-o"></i> Student Registration</a></li>
+                  <li><a href="{{ route('admin.student.promotion') }}"><i class="fa fa-circle-o"></i> Student Promotion</a></li>
+
 
                 </ul>
               </li>
@@ -86,11 +88,6 @@
                   <li><a href="{{ route('admin.grad-point.index') }}"><i class="fa fa-circle-o"></i>Manage Grad Point</a></li>
                   <li><a href="{{ route('admin.marksheet.index') }}"><i class="fa fa-circle-o"></i>Manage Marksheet</a></li>
                   <li><a href="{{ route('admin.result') }}"><i class="fa fa-circle-o"></i>Manage Result</a></li>
-
-
-
-
-
                 </ul>
               </li>
 
