@@ -34,6 +34,9 @@ Route::group(['as'=> 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'],func
     Route::post('search-student-promotion','StudentPromotController@searchStudent')->name('search.student.promotion');
     Route::post('promote-class','StudentPromotController@promote')->name('promote.class');
 
+    Route::resource('student-fee', 'FeeHistoryController');
+    Route::get('/fee-amount-search', 'FeeHistoryController@searchAmount')->name('fee.amount.search');
+
 
 
 });
