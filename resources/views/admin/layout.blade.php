@@ -97,7 +97,7 @@
                 </a>
                 <ul class="treeview-menu">
                   <li><a href="{{ route('admin.student-fee.index') }}"><i class="fa fa-circle-o"></i> Manage Student Fee</a></li>
-                  <li><a href="{{ route('admin.student.promotion') }}"><i class="fa fa-circle-o"></i> Teacher Payment</a></li>
+                  <li><a href="{{ route('admin.teacher-payment.index') }}"><i class="fa fa-circle-o"></i> Teacher Payment</a></li>
                 </ul>
               </li>
 
@@ -108,35 +108,8 @@
                 <ul class="treeview-menu">
                   <li><a href="{{ route('admin.student-attendance.create') }}"><i class="fa fa-circle-o"></i>Student Attendance</a></li>
                   <li><a href="{{ route('admin.student.attendance.history') }}"><i class="fa fa-circle-o"></i>Student Hisotory</a></li>
-
-                  <li><a href="{{ route('admin.student.promotion') }}"><i class="fa fa-circle-o"></i> Teacher Payment</a></li>
                 </ul>
               </li>
-
-
-
-
-
-
-              <li class="treeview">
-                <a href="#">
-                  <i class="fa fa-files-o"></i>
-                  <span>Layout Options</span>
-                  <span class="label label-primary pull-right">4</span>
-                </a>
-                <ul class="treeview-menu">
-                  <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-                  <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-                  <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-                  <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="../widgets.html">
-                  <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">new</small>
-                </a>
-              </li>
-              <li><a href="../../documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
               <li><a href="{{ route('admin.logout') }}"><i class="fa fa-book"></i> <span>Admin Logout</span></a></li>
 
 

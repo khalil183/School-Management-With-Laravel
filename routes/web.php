@@ -43,10 +43,8 @@ Route::group(['as'=> 'admin.', 'namespace' => 'Admin', 'prefix' => 'admin'],func
     Route::get('student-attendance-history','StudentAttendanceController@studentAttendanceHistory')->name('student.attendance.history');
     Route::get('search-student-attendance-history','StudentAttendanceController@searchStudentAttendanceHistory')->name('search.student.attendance.history');
 
-
-
-
-
+    Route::resource('teacher-payment','TeacherPaymentController');
+    Route::get('search-teacher-salary','TeacherPaymentController@searchTeacherSalary');
 });
 
 
