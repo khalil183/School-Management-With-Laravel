@@ -28,4 +28,8 @@ class AssignStudent extends Model
         return $this->hasMany(Mark::class,'student_id','student_id')->SUM('mark');
     }
 
+    public function attendances(){
+        return $this->hasMany(StudentAttendance::class,'student_id','student_id');
+    }
+
 }

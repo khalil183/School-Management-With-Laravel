@@ -97,11 +97,23 @@
                 </a>
                 <ul class="treeview-menu">
                   <li><a href="{{ route('admin.student-fee.index') }}"><i class="fa fa-circle-o"></i> Manage Student Fee</a></li>
-                  <li><a href="{{ route('admin.student.promotion') }}"><i class="fa fa-circle-o"></i> Student Promotion</a></li>
-
-
+                  <li><a href="{{ route('admin.student.promotion') }}"><i class="fa fa-circle-o"></i> Teacher Payment</a></li>
                 </ul>
               </li>
+
+              <li class="treeview">
+                <a href="#">
+                  <i class="fa fa-users"></i> <span>Attendance</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                  <li><a href="{{ route('admin.student-attendance.create') }}"><i class="fa fa-circle-o"></i>Student Attendance</a></li>
+                  <li><a href="{{ route('admin.student.attendance.history') }}"><i class="fa fa-circle-o"></i>Student Hisotory</a></li>
+
+                  <li><a href="{{ route('admin.student.promotion') }}"><i class="fa fa-circle-o"></i> Teacher Payment</a></li>
+                </ul>
+              </li>
+
+
 
 
 

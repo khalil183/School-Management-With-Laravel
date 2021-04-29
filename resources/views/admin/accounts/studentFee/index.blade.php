@@ -19,17 +19,8 @@
                     </ul>
                 </div>
                 @endif
-                <form action="{{ route('admin.fee-amount.store') }}" method="POST" >
+                <form action="{{ route('admin.student-fee.store') }}" method="POST" >
                     @csrf
-                    <div class="form-group">
-                        <label for="student">Student</label>
-                        <select name="student" id="student" class="form-control select2">
-                            <option value="">Select Student</option>
-                            @foreach ($students as $item)
-                                <option value="{{ $item->id }}">{{ $item->name }}-({{ $item->student_id }})</option>
-                            @endforeach
-                        </select>
-                    </div>
                     <div class="form-group">
                         <label for="fee_category">Fee Category Name</label>
                         <select name="fee_category" id="fee_category" class="form-control" onchange="loadAmount()">
@@ -58,6 +49,23 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="month">Month</label>
+                        <select name="month" id="month" class="form-control" disabled>
+                            <option value="">Select Month</option>
+                            @foreach ($months as $item)
+                                <option value="{{ $item->id }}">{{ $item->month }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="student">Student</label>
+                        <select name="student" id="student" class="form-control select2" disabled>
+                            <option value="">Select Student</option>
+                        </select>
+                    </div>
 
                     <div class="form-group d-none" >
                         <label for="amount">Amount</label>
@@ -65,7 +73,7 @@
                     </div>
 
 
-                    <button type="submit" class="btn btn-success">Payment</button>
+                    <button type="submit" id="payment_button" class="btn btn-success" disabled>Payment</button>
                 </form>
             </div><!-- /.box-body -->
         </div><!-- /.box -->
@@ -87,12 +95,16 @@
         }
         var yearId=$("#year").val();
         if(yearId){
+            $("#month").attr("disabled", false);
             $.ajax({
                 url: "{{ url('admin/fee-amount-search') }}",
                 data:{feeCategoryId,classId,yearId},
                 type: 'GET',
                 success: function(res) {
-                    $("#amount").val(res)
+                    $("#amount").val(res.amount.amount)
+                    $("#student").html(res.student)
+                    $("#student").attr("disabled", false);
+                    $("#payment_button").attr("disabled", false);
 
                 }
             });
