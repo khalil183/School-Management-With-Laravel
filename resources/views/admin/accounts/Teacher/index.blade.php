@@ -6,8 +6,8 @@
         <div class="col-xs-6">
         <div class="box">
             <div class="box-header">
-            <h3 class="box-title">Recieve Fee Form</h3>
-            {{-- <a href="{{ route('admin.fee-amount.index') }}" class="btn btn-success pull-right"><i class="fa fa-list" aria-hidden="true"></i> Fee Amount List</a> --}}
+            <h3 class="box-title">Teacher Payment Form</h3>
+            <a href="{{ route('admin.teacher-payment.index') }}" class="btn btn-success pull-right"><i class="fa fa-list" aria-hidden="true"></i> Teacher Payment History</a>
             </div><!-- /.box-header -->
             <div class="box-body fee-form">
                 @if ($errors->any())

@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Student;
+use App\Teacher;
+use App\StudentClass;
 class AdminController extends Controller
 {
 
@@ -19,7 +21,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $classes=StudentClass::all()->count();
+        $students=Student::all()->count();
+        $teachers=Teacher::all()->count();
+        return view('admin.index',compact('classes','students','teachers'));
     }
 
     /**
